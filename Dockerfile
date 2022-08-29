@@ -14,8 +14,6 @@ RUN curl -L https://github.com/protocolbuffers/protobuf/releases/download/v${PRO
     mv include/* /usr/local/include/
 
 WORKDIR /usr/src/app
-# COPY go.mod .
-# COPY go.sum .
 
 # プラグインの導入
 RUN go get google.golang.org/protobuf/cmd/protoc-gen-go && \
