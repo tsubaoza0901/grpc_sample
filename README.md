@@ -22,9 +22,17 @@ $ docker exec -it grpc-sample-go bash
 /usr/src/app# go run greeter_server/main.go
 ```
 
+### 3. クライアント起動   
 
-3. クライアント起動   
-別のターミナルに移動して以下を実行
+1. 新たなターミナルタブの立ち上げ
+
+2. アプリケーションコンテナ内に移動
+
+```
+$ docker exec -it grpc-sample-go bash
+```
+
+3. クライアント起動
 
 ```
 /usr/src/app# go run greeter_client/main.go
