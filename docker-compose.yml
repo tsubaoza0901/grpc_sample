@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  protoc:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: grpc-sample-go
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - '6050:6050'
+    tty: true
+    stdin_open: true
