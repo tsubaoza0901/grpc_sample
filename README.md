@@ -61,6 +61,18 @@ $ docker exec -it grpc-sample-go bash
 ## 更新方法
 
 1. `.proto` ファイルの内容更新
+
+ex）helloworld.proto
+
+```
+service Greeter {
+    ...
+    
+  // Sends another greeting
+  rpc SayHelloAgain (HelloRequest) returns (HelloReply) {}
+}
+```
+
 2. gRPCコードの再生成
 
 ```
