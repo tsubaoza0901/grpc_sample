@@ -1,4 +1,4 @@
-module github.com/grpc-sample-app
+module github.com/grpc-sample-server-app
 
 go 1.16
 

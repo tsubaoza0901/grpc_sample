@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  protoc:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: grpc-sample-client-go
+    volumes:
+      - ./:/usr/src/app
+    # ports:
+    #   - '6060:6060'
+    tty: true
+    stdin_open: true
+    networks:
+      - greeter_server_default
+networks:
+  greeter_server_default:
+    external: true

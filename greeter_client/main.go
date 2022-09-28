@@ -6,7 +6,7 @@ import (
 	"log"
 	"time"
 
-	pb "github.com/grpc-sample-app/helloworld"
+	pb "github.com/grpc-sample-client-app/helloworld"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )
@@ -16,7 +16,7 @@ const (
 )
 
 var (
-	addr = flag.String("addr", "localhost:50051", "the address to connect to")
+	addr = flag.String("addr", "protoc:50051", "the address to connect to") // NOTE: server側のdocker-compose.ymlで設定されたservice名であるprotocを設定
 	name = flag.String("name", defaultName, "Name to greet")
 )
 

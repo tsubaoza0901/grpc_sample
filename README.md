@@ -2,40 +2,42 @@
 
 ## 起動方法
 
-### 1. Dockerイメージのビルド&コンテナの起動
+### ① Server 側
+
+1. Docker イメージのビルド&コンテナの起動
 
 ```
+$ cd greeter_server
 $ docker-compose up -d --build
-```
-
-### 2. サーバー起動
-
-1. アプリケーションコンテナ内に移動
-
-```
-$ docker exec -it grpc-sample-go bash
 ```
 
 2. サーバー起動
 
 ```
-/usr/src/app# go run greeter_server/main.go
+$ docker exec -it grpc-sample-server-go bash
 ```
 
-### 3. クライアント起動   
-
-1. 新たなターミナルタブの立ち上げ
-
-2. アプリケーションコンテナ内に移動
-
 ```
-$ docker exec -it grpc-sample-go bash
+/usr/src/app# go run main.go
 ```
 
-3. クライアント起動
+### ② Client 側
+
+1. Docker イメージのビルド&コンテナの起動
 
 ```
-/usr/src/app# go run greeter_client/main.go
+$ cd greeter_client
+$ docker-compose up -d --build
+```
+
+2. サーバー起動
+
+```
+$ docker exec -it grpc-sample-client-go bash
+```
+
+```
+/usr/src/app# go run main.go
 ```
 
 ※想定出力結果
@@ -45,10 +47,10 @@ $ docker exec -it grpc-sample-go bash
 2022/00/00 00:00:00 Greeting: Hello again world
 ```
 
-なお、以下のようにcommand-line argumentを設定することも可能
+なお、Client 側で以下のように command-line argument を設定することも可能
 
 ```
-/usr/src/app# go run greeter_client/main.go --name=Alice
+/usr/src/app# go run main.go --name=Alice
 ```
 
 ※想定出力結果
@@ -67,13 +69,13 @@ ex）helloworld.proto
 ```
 service Greeter {
     ...
-    
+
   // Sends another greeting
   rpc SayHelloAgain (HelloRequest) returns (HelloReply) {}
 }
 ```
 
-2. gRPCコードの再生成
+2. gRPC コードの再生成
 
 ```
 /usr/src/app# protoc --go_out=. --go_opt=paths=source_relative \
@@ -101,15 +103,15 @@ if err != nil {
 log.Printf("Greeting: %s", r.GetMessage())
 ```
 
-
-
 # 参考
+
 - gRPC 公式ドキュメント
-https://grpc.io/
+  https://grpc.io/
 
 - gRPC examples
-https://github.com/grpc/grpc-go/tree/master/examples/helloworld
+  https://github.com/grpc/grpc-go/tree/master/examples/helloworld
 
 # 関連
-- Dockerでprotocを行って開発を楽にする
-https://zenn.dev/mitsugu/articles/0323811005f233
+
+- Docker で protoc を行って開発を楽にする
+  https://zenn.dev/mitsugu/articles/0323811005f233
