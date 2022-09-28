@@ -103,6 +103,12 @@ if err != nil {
 log.Printf("Greeting: %s", r.GetMessage())
 ```
 
+### 注）
+
+Client と Server が分かれているため、片方の.proto に変更を加えた場合は、同様の内容で Client もしくは Server の .proto ファイルを更新し、コードの再生成を行うか、片方で生成した内容をコピーするなどして Client もしくは Server に内容を反映させる必要あり。
+
+なお、grpc_sample 直下にも helloworld ディレクトリがあり、その中にも.proto ファイル等があるが、Client と Server が分かれている現状では使用していない。
+
 # 参考
 
 - gRPC 公式ドキュメント
