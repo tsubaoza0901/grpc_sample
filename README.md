@@ -111,13 +111,15 @@ Client と Server が分かれているため、片方の.proto に変更を加�
 
 # 参考
 
-- gRPC 公式ドキュメント
+- gRPC 公式ドキュメント：
   https://grpc.io/
 
-- gRPC examples
+- gRPC examples：
   https://github.com/grpc/grpc-go/tree/master/examples/helloworld
 
 # 関連
 
-- Docker で protoc を行って開発を楽にする
+- Docker で protoc を行って開発を楽にする：
   https://zenn.dev/mitsugu/articles/0323811005f233
+- 作ってわかる!はじめての gRPC：
+  https://zenn.dev/hsaki/books/golang-grpc-starting/viewer/intro
