@@ -123,3 +123,5 @@ Client と Server が分かれているため、片方の.proto に変更を加�
   https://zenn.dev/mitsugu/articles/0323811005f233
 - 作ってわかる!はじめての gRPC：
   https://zenn.dev/hsaki/books/golang-grpc-starting/viewer/intro
+- Protocol buffers の proto ファイルの管理と配布：
+  https://qiita.com/nakaryooo/items/d71d2cb5f5cd44b052ee
