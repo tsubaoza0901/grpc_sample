@@ -8,7 +8,7 @@ services:
     container_name: grpc-sample-server-go
     volumes:
       - ./:/usr/src/app
-    ports:
-      - '50051:50051'
+    # ports:
+    #   - '6050:6050'
     tty: true
     stdin_open: true
